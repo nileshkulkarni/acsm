@@ -1,0 +1,238 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+    body {
+        font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-weight:300;
+        font-size:18px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 1100px;
+    }
+
+    h1 {
+        font-weight:300;
+    }
+
+    .disclaimerbox {
+        background-color: #eee;
+        border: 1px solid #eeeeee;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+        padding: 20px;
+    }
+
+    video.header-vid {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    img.header-img {
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    img.rounded {
+        border: 1px solid #eeeeee;
+        border-radius: 10px ;
+        -moz-border-radius: 10px ;
+        -webkit-border-radius: 10px ;
+    }
+
+    a:link,a:visited
+    {
+        color: #1367a7;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #208799;
+    }
+
+    td.dl-link {
+        height: 160px;
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+                0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+                5px 5px 0 0px #fff, /* The second layer */
+                5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+                10px 10px 0 0px #fff, /* The third layer */
+                10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+                15px 15px 0 0px #fff, /* The fourth layer */
+                15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+                20px 20px 0 0px #fff, /* The fifth layer */
+                20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+                25px 25px 0 0px #fff, /* The fifth layer */
+                25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+        margin-left: 10px;
+        margin-right: 45px;
+    }
+
+
+    .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+        box-shadow:
+                0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+                5px 5px 0 0px #fff, /* The second layer */
+                5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+                10px 10px 0 0px #fff, /* The third layer */
+                10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 30px;
+        margin-bottom: 5px;
+    }
+
+    .vert-cent {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    hr
+    {
+        border: 0;
+        height: 1.5px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    }
+</style>
+
+<html>
+  <head>
+        <title>CSM</title>
+        <meta property="og:title" content="Articulation-aware Canonical Surface Mapping" />
+        <meta property="og:image" content="https://nileshkulkarni.github.io/acsm/resources/images/teaser.png"/>
+		<meta property="og:description" content="N. Kulkarni, A. Gupta, D. F. Fouhey, S. Tulsiani. CVPR 2020." />
+  </head>
+
+  <body>
+    <br>
+    <center>
+    <span style="font-size:42px">Articulation Aware Canonical Surface Mapping</span>
+    </center>
+
+    <br><br>
+      <table align=center width=900px>
+       <tr>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="https://nileshkulkarni.github.io/">Nilesh Kulkarni<sup>1</sup></a></span>
+        </center>
+        </td>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="http://www.cs.cmu.edu/~abhinavg/">Abhinav Gupta</a><sup>2,3</sup></span>
+        </center>
+        </td>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="https://shubhtuls.github.io/">David F. Fouhey</a><sup>1</sup></span>
+        </center>
+        </td>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="https://shubhtuls.github.io/">Shubham Tulsiani</a><sup>3</sup></span>
+        </center>
+        </td>
+        
+     </tr>
+    </table>
+
+    <br>
+    <table align=center width=700px>
+       <tr>
+        <td align=center width=100px>
+        <center>
+          <span style="font-size:20px">University of Michigan</span>
+        </center>
+        </td>
+          <td align=center width=100px>
+        <center>
+          <span style="font-size:20px">Carnegie Mellon University</span>
+        </center>
+        </td>
+         <td align=center width=100px>
+        <center>
+          <span style="font-size:20px">Facebook AI Research</span>
+        </center>
+        </td>
+     </tr>
+    </table>
+    
+    <br>
+    <table align=center width=700px>
+       <tr>
+        <td align=center width=100px>
+        <center>
+          <span style="font-size:20px">CVPR 2020</span>
+        </center>
+        </td>
+     </tr>
+    </table>
+
+    <br>
+      <table align=center width=300px>
+       <tr>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="#">[pdf]</a></span>
+        </center>
+        </td>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="http://www.github.com/nileshkulkarni/acsm/">[code]</a></span>
+        </center>
+        </td>
+        <td align=center width=100px>
+        <center>
+        <span style="font-size:20px"><a href="#">[video]</a></span>
+        </center>
+        </td>
+        
+     </tr>
+    </table>
+    <table align=center width=700px>
+     <tr>
+    <td align=center width=100px>
+    <center>
+    <span style="font-size:20px"></span>
+    </center>
+    </td>
+   </tr>
+  </table>
+
+            <br>
+            <table align=center width=900px>
+                <tr>
+                    <td width=00px>
+                      <center>
+                          <a href="./resources/images/teaser.png"><img src = "./resources/images/teaser.png" width="900px"></img></href></a><br>
+                    </center>
+                    </td>
+                </tr>
+                    <td width=600px>
+                      <center>
+                          <span style="font-size:14px"><i>We tackle the tasks of: a) canonical surface mapping (CSM) \ie mapping pixels to corresponding points on a template shape, and b) predicting articulation of this template. Our approach allows learning these without relying on keypoint supervision, and we visualize the results obtained across several categories. The color across the template 3D model on the left and image pixels represent the predicted mapping among them, while the smaller 3D meshes represent our predicted articulations in camera (top) or a novel (bottom) view</i>
+                    </center>
+                    </td>
+                </tr>
+            </table>
+
+            <br>
+            We tackle the tasks of: 1) predicting a Canonical Surface Mapping (CSM) that indicates the mapping from 2D pixels to corresponding points on a canonical template shape , and 2) inferring the articulation and pose of the template corresponding to the input image. While previous approaches rely on leveraging keypoint supervision for learning, we present an approach that can learn without such annotations. Our key insight is that these tasks are geometrically related, and we can obtain supervisory signal via enforcing consistency among the predictions. We present results across a diverse set of animate object categories, showing that our method can learn articulation and CSM prediction from image collections using only foreground mask labels for training. We empirically show that allowing articulation helps learn more accurate CSM prediction, and that enforcing the consistency with predicted CSM is similarly critical for learning meaningful articulation.
+            <br><br>
+          <hr>
+         <!-- <table align=center width=550px> -->
+        <br><br>
+</body>
+</html>

@@ -1,0 +1,7 @@
+@article{kulkarni2020acsm,
+  title={Articulation-aware Canonical Surface Mapping},
+  author={Kulkarni, Nilesh and Gupta, Abhinav and Fouhey, David F. and Tulsiani, Shubham},
+  year={2020},
+  booktitle={Computer Vision and Pattern Recognition(CVPR)}
+}
+

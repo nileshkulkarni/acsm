@@ -1,0 +1,97 @@
+diff --git demo/demo.py demo/demo.py
+index 1fd8df8..b6b094f 100755
+--- demo/demo.py
++++ demo/demo.py
+@@ -13,6 +13,7 @@ from detectron2.utils.logger import setup_logger
+ 
+ from predictor import VisualizationDemo
+ 
++from point_rend import SemSegDatasetMapper, add_pointrend_config
+ # constants
+ WINDOW_NAME = "COCO detections"
+ 
+diff --git detectron2/data/dataset_mapper.py detectron2/data/dataset_mapper.py
+index db73b37..be97d8a 100644
+--- detectron2/data/dataset_mapper.py
++++ detectron2/data/dataset_mapper.py
+@@ -75,7 +75,12 @@ class DatasetMapper:
+         dataset_dict = copy.deepcopy(dataset_dict)  # it will be modified by code below
+         # USER: Write your own image loading if it's not from a file
+         image = utils.read_image(dataset_dict["file_name"], format=self.img_format)
+-        utils.check_image_size(dataset_dict, image)
++        import pdb
++        try:
++            utils.check_image_size(dataset_dict, image)
++        except utils.SizeMismatchError as e:
++            dataset_dict['height'], dataset_dict['width'] =  dataset_dict['width'], dataset_dict['height']
++            utils.check_image_size(dataset_dict, image)
+ 
+         if "annotations" not in dataset_dict:
+             image, transforms = T.apply_transform_gens(
+diff --git detectron2/data/datasets/builtin.py detectron2/data/datasets/builtin.py
+index bcfd78e..1682777 100644
+--- detectron2/data/datasets/builtin.py
++++ detectron2/data/datasets/builtin.py
+@@ -44,6 +44,7 @@ _PREDEFINED_SPLITS_COCO["coco"] = {
+     "coco_2017_test": ("coco/test2017", "coco/annotations/image_info_test2017.json"),
+     "coco_2017_test-dev": ("coco/test2017", "coco/annotations/image_info_test-dev2017.json"),
+     "coco_2017_val_100": ("coco/val2017", "coco/annotations/instances_val2017_100.json"),
++    "coco_imquad_train": (".", "imquad/annotations/im_quads_coco.json"),
+ }
+ 
+ _PREDEFINED_SPLITS_COCO["coco_person"] = {
+diff --git detectron2/data/datasets/coco.py detectron2/data/datasets/coco.py
+index 6138646..fcb8658 100644
+--- detectron2/data/datasets/coco.py
++++ detectron2/data/datasets/coco.py
+@@ -135,7 +135,10 @@ Category ids in annotations are not in [1, #categories]! We'll apply a mapping f
+ 
+     for (img_dict, anno_dict_list) in imgs_anns:
+         record = {}
+-        record["file_name"] = os.path.join(image_root, img_dict["file_name"])
++        if 'filename' in img_dict.keys():
++            record["file_name"] = os.path.join(image_root, img_dict["filename"])
++        else:
++            record["file_name"] = os.path.join(image_root, img_dict["file_name"])
+         record["height"] = img_dict["height"]
+         record["width"] = img_dict["width"]
+         image_id = record["image_id"] = img_dict["id"]
+diff --git detectron2/engine/defaults.py detectron2/engine/defaults.py
+index db9ab68..1b7afb8 100644
+--- detectron2/engine/defaults.py
++++ detectron2/engine/defaults.py
+@@ -515,6 +515,7 @@ Alternatively, you can call evaluation functions yourself (see Colab balloon tut
+                     )
+                     results[dataset_name] = {}
+                     continue
++            import pdb; pdb.set_trace()
+             results_i = inference_on_dataset(model, data_loader, evaluator)
+             results[dataset_name] = results_i
+             if comm.is_main_process():
+diff --git detectron2/evaluation/evaluator.py detectron2/evaluation/evaluator.py
+index 23164f2..a1f4d4c 100644
+--- detectron2/evaluation/evaluator.py
++++ detectron2/evaluation/evaluator.py
+@@ -138,6 +138,7 @@ def inference_on_dataset(model, data_loader, evaluator):
+                 total_compute_time = 0
+ 
+             start_compute_time = time.perf_counter()
++            import pdb; pdb.set_trace()
+             outputs = model(inputs)
+             if torch.cuda.is_available():
+                 torch.cuda.synchronize()
+diff --git projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_1x_coco.yaml projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_1x_coco.yaml
+index e9fc573..6e860bf 100644
+--- projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_1x_coco.yaml
++++ projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_R_50_FPN_1x_coco.yaml
+@@ -5,5 +5,8 @@ MODEL:
+   RESNETS:
+     DEPTH: 50
+ # To add COCO AP evaluation against the higher-quality LVIS annotations.
+-# DATASETS:
+-#   TEST: ("coco_2017_val", "lvis_v0.5_val_cocofied")
++DATASETS:
++  TEST: ("coco_2014_val",)
++  TRAIN: ("coco_2014_train",)
++SOLVER:
++  IMS_PER_BATCH: 8

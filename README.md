@@ -5,7 +5,6 @@ Nilesh Kulkarni, Abhinav Gupta, David F. Fouhey, Shubham Tulsiani
 
 <img src="https://nileshkulkarni.github.io/acsm/resources/images/teaser.png" width="60%">
 
-Warning: Some links are broken will soon be updated. 
 ## Requirements
 * Python 2.7
 * PyTorch tested with `1.2.0` and works with `1.3.0` too.

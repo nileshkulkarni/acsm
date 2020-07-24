@@ -472,7 +472,7 @@ class KPTransferTester(test_utils.Tester):
         # dist_thresholds =  [100]
         from . import kp_splits
         select_kp_ids = kp_splits.get_kp_splits(
-            self.kp_names, opts.pascal_class
+            self.kp_names, opts.category
         )
         pck_eval.run_evaluation(
             bench_stats_m1, opts.num_eval_iter, opts.results_dir, opts.img_size,

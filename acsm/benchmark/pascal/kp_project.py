@@ -317,7 +317,7 @@ class KPTransferTester(test_utils.Tester):
 
         from . import kp_splits
         select_kp_ids = kp_splits.get_kp_splits(
-            self.kp_names, opts.pascal_class
+            self.kp_names, opts.category
         )
 
         dist_thresholds = None

@@ -1,0 +1,7 @@
+body False 1 0 0
+head False 1 0 0
+neck False 1 0 0
+LF_leg False 1 0 0
+RF_leg False 1 0 0
+RR_leg False 1 0 0
+LR_leg False 1 0 0

@@ -32,11 +32,11 @@ We only provide annotations for non-occulded and non-truncated object quadrupeds
 ---
 ## Download the dataset
 
-Filtered images that have non-occluded and non-truncated instances  of quadrupeds: [Here](http://fouheylab.eecs.umich.edu/~nileshk/acsm_data/imquad_release/quads74K_pos.csv)
+Filtered images that have non-occluded and non-truncated instances  of quadrupeds: [Here](https://www.dropbox.com/s/2gbw6thkei8f4yk/quads74K_pos.csv?dl=0)
 
-Annoatations in coco-format :  [Here](http://fouheylab.eecs.umich.edu/~nileshk/acsm_data/imquad_release/annotations/im_quads_coco.json). Quadrupeds have the "*person*" as the class label.
+Annoatations in coco-format :  [Here](https://www.dropbox.com/s/t41szagb4lxda3t/im_quads_coco.json?dl=0). Quadrupeds have the "*person*" as the class label.
 
-Inferred Annotations for all images in the above categories: [Here]( ) (~ approximately 20G of mask predictions using [point-rend](http://fouheylab.eecs.umich.edu/~nileshk/acsm_data/imquad_release/masks_point_rend.tar))
+Inferred Annotations for all images in the above categories: [Here]( ) (~ approximately 20G of mask predictions using [point-rend](https://www.dropbox.com/s/qymjv8ir1ns5brk/masks_point_rend.tar?dl=0))
 
 ---
 ## Using the Pre-trained network weights

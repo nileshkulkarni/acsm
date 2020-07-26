@@ -1,7 +1,8 @@
 ## Setup annotations and data directories
 
 
-### Download template models and annotations
+### Download template models and annotations 
+Download from [here](https://www.dropbox.com/s/3tj037gnk4gz11t/cachedir.tar?dl=0)
 We provide rigged version of 3D template models for articulation. Every model has the following structured
 ```
 cachedir
@@ -22,7 +23,7 @@ cachedir
 
 
 ### Download image annotations and splits
-Download our pretrained model and cached annotations from [here](https://drive.google.com/file/d/1_zOwuuDORW0kLtCSnN0x2U_SDdlPdzpE/view?usp=drivesdk)
+Download our pretrained model and cached annotations from [here](https://www.dropbox.com/s/3tj037gnk4gz11t/cachedir.tar?dl=0)
 ```
 cd acsm
 tar -xf cachedir.tar
@@ -54,12 +55,12 @@ tar -xf cachedir.tar
 
 
 #### Training and Testing on Pascal Horses dataset
-* Train Birds with Keypoints. Generate training command using this 
+* Train Horses with Keypoints. Generate training command using this 
   ```
     python -m acsm.experiments.job_script --category=horse --kp=True --parts_file=acsm/part_files/horse.txt
   ```
 
-* Train Birds without Keypoints
+* Train Horses without Keypoints
   ```
     python -m acsm.experiments.job_script --category=horse --kp=False --parts_file=acsm/part_files/horse.txt
   ```
@@ -75,3 +76,20 @@ tar -xf cachedir.tar
     ```
     python -m acsm.benchmark.pascal.kp_transfer --name=acsm_horse_8parts --category=horse  --parts_file=acsm/part_files/horse.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_horse_8parts_transfer_pck_val --multiple_cam=True --num_eval_iter=10000 --visuals_freq=1000  --visualize=True --n_data_workers=4  --scale_bias=0.75  --resnet_style_decoder=True  --resnet_blocks=4
     ```
+
+
+#### Other configurations of models.
+
+| Model                | Keypoint Supv | Num of Parts |
+| -------------------- | ------------- | ------------ |
+| acsm_bird_kp_3parts  | Yes           | 3            |
+| acsm_bird_3parts     | No            | 3            |
+| acsm_bird_kp_0parts  | Yes           | 0            |
+| acsm_bird_0parts     | No            | 0            |
+|                      |               |              |
+| acsm_horse_kp_8parts | Yes           | 3            |
+| acsm_horse_8parts    | No            | 3            |
+| acsm_horse_kp_0parts | Yes           | 0            |
+| acsm_horse_0parts    | No            | 0            |
+
+

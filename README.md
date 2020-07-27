@@ -1,6 +1,7 @@
 # Articulation-Aware Canonical Surface Mapping
 Nilesh Kulkarni, Abhinav Gupta, David F. Fouhey, Shubham Tulsiani
 
+[Paper](https://arxiv.org/pdf/2004.00614.pdf)
 [Project Page](https://nileshkulkarni.github.io/acsm/)
 
 <img src="https://nileshkulkarni.github.io/acsm/resources/images/teaser.png" width="60%">
@@ -18,10 +19,20 @@ For ease of acess we provide python scripts that can generate slurm scripts that
 
 * Downloading pre-trained model and annotations. Follow setup instructions [here](docs/setup.md)
 
-* Training from scratch
+* Training from scratch.  Follow setup instructions [here](docs/setup.md)
 
 
-
+## Citation
+If you find the code useful for your research, please consider citing:-
+```
+@inproceedings{kulkarni2020articulation,
+  title={Articulation-aware Canonical Surface Mapping},
+  author={Kulkarni, Nilesh and Gupta, Abhinav and Fouhey, David F and Tulsiani, Shubham},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={452--461},
+  year={2020}
+}
+```
 
 
 

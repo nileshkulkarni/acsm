@@ -87,8 +87,8 @@ tar -xf cachedir.tar
 | acsm_bird_kp_0parts  | Yes           | 0            |
 | acsm_bird_0parts     | No            | 0            |
 |                      |               |              |
-| acsm_horse_kp_8parts | Yes           | 3            |
-| acsm_horse_8parts    | No            | 3            |
+| acsm_horse_kp_8parts | Yes           | 8            |
+| acsm_horse_8parts    | No            | 8            |
 | acsm_horse_kp_0parts | Yes           | 0            |
 | acsm_horse_0parts    | No            | 0            |
 

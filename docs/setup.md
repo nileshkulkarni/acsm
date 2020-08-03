@@ -43,13 +43,13 @@ tar -xf cachedir.tar
 
 * Evaluate KP Projection
     ```
-    python -m acsm.benchmark.pascal.kp_project --name=acsm_bird_3parts --category=bird --parts_file=acsm/part_files/bird.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_bird_3parts_pck_val --multiple_cam=True  --visuals_freq=5 --visualize=True --n_data_workers=4 --scale_bias=1.5  --resnet_style_decoder=True --resnet_blocks=4
+    python -m acsm.benchmark.pascal.kp_project --name=acsm_bird_3parts --category=bird --parts_file=acsm/part_files/bird.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_bird_3parts_pck_val --multiple_cam=True  --visuals_freq=5 --visualize=True --n_data_workers=4 --scale_bias=1.5  --resnet_style_decoder=True --resnet_blocks=4 --el_euler_range=90 --cyc_euler_range=60
     ```
 
 
 * Evaluate KP PCK Transfer
     ```
-    python -m acsm.benchmark.pascal.kp_transfer --name=acsm_bird_3parts --category=bird  --parts_file=acsm/part_files/bird.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_bird_3parts_transfer_pck_val --multiple_cam=True --num_eval_iter=10000 --visuals_freq=1000  --visualize=True --n_data_workers=4  --scale_bias=1.5  --resnet_style_decoder=True  --resnet_blocks=4
+    python -m acsm.benchmark.pascal.kp_transfer --name=acsm_bird_3parts --category=bird  --parts_file=acsm/part_files/bird.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_bird_3parts_transfer_pck_val --multiple_cam=True --num_eval_iter=10000 --visuals_freq=1000  --visualize=True --n_data_workers=4  --scale_bias=1.5  --resnet_style_decoder=True  --resnet_blocks=4 --el_euler_range=90 --cyc_euler_range=60
     ```
 
 
@@ -68,13 +68,13 @@ tar -xf cachedir.tar
 
 * Evaluate KP PCK
     ```
-    python -m acsm.benchmark.pascal.kp_project --name=acsm_horse_8parts --category=horse --parts_file=acsm/part_files/horse.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_horse_8parts_pck_val --multiple_cam=True  --visuals_freq=5 --visualize=True --n_data_workers=4 --scale_bias=0.75 --resnet_style_decoder=True --resnet_blocks=4
+    python -m acsm.benchmark.pascal.kp_project --name=acsm_horse_8parts --category=horse --parts_file=acsm/part_files/horse.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_horse_8parts_pck_val --multiple_cam=True  --visuals_freq=5 --visualize=True --n_data_workers=4 --scale_bias=0.75 --resnet_style_decoder=True --resnet_blocks=4 --el_euler_range=20 --cyc_euler_range=20
     ```
 
 
 * Evaluate KP Projection
     ```
-    python -m acsm.benchmark.pascal.kp_transfer --name=acsm_horse_8parts --category=horse  --parts_file=acsm/part_files/horse.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_horse_8parts_transfer_pck_val --multiple_cam=True --num_eval_iter=10000 --visuals_freq=1000  --visualize=True --n_data_workers=4  --scale_bias=0.75  --resnet_style_decoder=True  --resnet_blocks=4
+    python -m acsm.benchmark.pascal.kp_transfer --name=acsm_horse_8parts --category=horse  --parts_file=acsm/part_files/horse.txt --use_html --dl_out_pascal=True --dl_out_imnet=False --split=val --num_train_epoch=200 --num_hypo_cams=8 --env_name=acsm_horse_8parts_transfer_pck_val --multiple_cam=True --num_eval_iter=10000 --visuals_freq=1000  --visualize=True --n_data_workers=4  --scale_bias=0.75  --resnet_style_decoder=True  --resnet_blocks=4 --el_euler_range=20 --cyc_euler_range=20
     ```
 
 

@@ -28,7 +28,12 @@ Download our pretrained model and cached annotations from [here](https://www.dro
 cd acsm
 tar -xf cachedir.tar
 ```
-
+### Download models for other imagenet catgories
+```
+cd acsm/cachedir/
+wget https://www.dropbox.com/s/05lohn7x96o3fuf/models.zip?dl=0
+unzip -q models.zip 
+```
 #### Training and Testing on CUBS dataset
 * Train Birds with Keypoints. Generate training command using this 
   ```

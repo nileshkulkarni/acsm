@@ -23,7 +23,7 @@ cachedir
 
 
 ### Download image annotations and splits
-Download our pretrained model and cached annotations from [here](https://www.dropbox.com/s/3tj037gnk4gz11t/cachedir.tar?dl=0)
+Download our pretrained model and cached annotations from [here](https://www.dropbox.com/s/8zo5ohwhv99efqr/cachedir.tar.gz?dl=0)
 ```
 cd acsm
 tar -xf cachedir.tar
